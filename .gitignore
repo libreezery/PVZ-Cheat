@@ -1,0 +1,5 @@
+/out
+/.idea
+/cpp/.idea
+/cpp/cmake-build-debug
+/*.txt
