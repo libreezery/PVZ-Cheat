@@ -18,18 +18,50 @@ JNIEXPORT jboolean JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_isRunning
 /*
  * Class:     breeze_pvz_cheater_utils_PVZHooker
  * Method:    infinitSunshine
- * Signature: (Z)V
+ * Signature: (I)V
  */
 JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_infinitSunshine
-  (JNIEnv *, jclass, jboolean);
+  (JNIEnv *, jclass, jint);
 
 /*
  * Class:     breeze_pvz_cheater_utils_PVZHooker
  * Method:    infinitCoin
- * Signature: (Z)V
+ * Signature: (I)V
  */
 JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_infinitCoin
-  (JNIEnv *, jclass, jboolean);
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterFertilizer
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterFertilizer
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterTreeFertilizer
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterTreeFertilizer
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterTreeHeight
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterTreeHeight
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterherbicide
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterherbicide
+  (JNIEnv *, jclass, jint);
 
 #ifdef __cplusplus
 }

@@ -4,91 +4,89 @@
 
 #include "breeze_pvz_cheater_utils_PVZHooker.h"
 
-#include <windows.h>
+#include "PVZTools.h"
 
-#include <cstdlib>
-
-using namespace std;
-
-
-static bool canBeHooked = false;
-
-static DWORD threadProcessID;
-
-static HANDLE process;
-
-// 打开内存
-boolean startHook() {
-    HWND findWindow = FindWindowW(nullptr, L"植物大战僵尸汉化版");
-    if (!findWindow) {
-        return canBeHooked;
-    }
-
-    if (!GetWindowThreadProcessId(findWindow, &threadProcessID)) {
-        return canBeHooked;
-    }
-
-    // 打开进程
-    process = OpenProcess(PROCESS_ALL_ACCESS, false, threadProcessID);
-    if (process == nullptr) {
-        return canBeHooked;
-    }
-    canBeHooked = true;
-    return canBeHooked;
-}
-
-// 读取阳光地址
-DWORD getSunshineAddress() {
-    DWORD basicAddress = 0x006A9EC0;
-    DWORD basicAddressValue;
-
-    ReadProcessMemory(process, (LPVOID) basicAddress, &basicAddressValue, sizeof(DWORD), nullptr);
-
-    // offset 1
-    DWORD offsetA = basicAddressValue + 0x768;
-    DWORD offsetAValue;
-    ReadProcessMemory(process, (LPVOID) offsetA, &offsetAValue, sizeof(DWORD), nullptr);
-
-    // offset 2
-    DWORD offsetB = offsetAValue + 0x5560;
-    return offsetB;
-}
-
-// 读取金币地址
-DWORD getCoinAddress() {
-    DWORD basicAddress = 0x006A9EC0;
-    DWORD basicAddressValue;
-
-    ReadProcessMemory(process, (LPVOID) basicAddress, &basicAddressValue, sizeof(DWORD), nullptr);
-    // offset 1
-    DWORD offsetA = basicAddressValue + 0x0000082C;
-    DWORD offsetAValue;
-    ReadProcessMemory(process, (LPVOID) offsetA, &offsetAValue, sizeof(DWORD), nullptr);
-
-    // offset 2
-    DWORD offsetB = offsetAValue + 0x28;
-    return offsetB;
-}
-
-bool readMemory(DWORD address, DWORD *value) {
-    return ReadProcessMemory(process, (LPVOID) address, &(*value), sizeof(DWORD), nullptr);
-}
-
-bool writeMemory(DWORD address, DWORD value) {
-    return WriteProcessMemory(process, (LPVOID) address, &value, sizeof(DWORD), nullptr);
-}
 
 JNIEXPORT jboolean JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_isRunning
         (JNIEnv *env, jclass clazz) {
     return startHook();
 }
 
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    infinitSunshine
+ * Signature: (I)V
+ */
 JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_infinitSunshine
-        (JNIEnv *env, jclass clazz, jboolean lock) {
-    writeMemory(getSunshineAddress(), 9990);
+        (JNIEnv *env, jclass clazz, jint val) {
+    if (canBeHooked) {
+        setSunshine(val);
+    }
 }
 
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    infinitCoin
+ * Signature: (I)V
+ */
 JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_infinitCoin
-        (JNIEnv *env, jclass clazz, jboolean lock) {
-    writeMemory(getCoinAddress(), 9999999);
+        (JNIEnv *env, jclass clazz, jint val) {
+    if (canBeHooked) {
+        setCoin(val);
+    }
+}
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterFertilizer
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterFertilizer
+        (JNIEnv *env, jclass clazz, jint val) {
+    if (canBeHooked) {
+        setFertilizer(val);
+    }
+}
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterherbicide
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterherbicide
+        (JNIEnv *env, jclass clazz, jint val) {
+    if (canBeHooked) {
+        setHerbicide(val);
+    }
+}
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterTreeHeight
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterTreeHeight
+        (JNIEnv *env, jclass clazz, jint val) {
+    if (canBeHooked) {
+        if (val > 0) {
+            setTreeHeight((int) getTreeHeight() + 100);
+        } else if (val < 0 && getTreeHeight() > 100) {
+            setTreeHeight((int) getTreeHeight() - 100);
+        } else {
+            setTreeHeight(0);
+        }
+    }
+}
+
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterTreeFertilizer
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterTreeFertilizer
+        (JNIEnv *env, jclass clazz, jint val) {
+    if (canBeHooked) {
+        setTreeFertilizer(val);
+    }
 }

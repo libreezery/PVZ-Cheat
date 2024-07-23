@@ -15,12 +15,21 @@ public class PVZHooker {
     /**
      * 无限阳光，锁定阳光在 9990
      */
-    public static native void infinitSunshine(boolean lock);
+    public static native void infinitSunshine(int num);
 
     /**
      * 无限金币，锁定金币在 999999999
      */
-    public static native void infinitCoin(boolean lock);
+    public static native void infinitCoin(int num);
+
+
+    public static native void alterFertilizer(int num);
+
+    public static native void alterTreeFertilizer(int num);
+
+    public static native void alterTreeHeight(int num);
+
+    public static native void alterherbicide(int num);
 
 
 }

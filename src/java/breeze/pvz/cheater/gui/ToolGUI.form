@@ -67,7 +67,7 @@
               <text value="数值修改"/>
             </properties>
           </component>
-          <grid id="f40c6" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="f40c6" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints border-constraint="West"/>
             <properties>
@@ -98,11 +98,127 @@
                   <text value="修改金币"/>
                 </properties>
               </component>
+              <component id="224f2" class="javax.swing.JButton" binding="alterFertilizer">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <text value="修改肥料"/>
+                </properties>
+              </component>
+              <component id="81650" class="javax.swing.JButton" binding="alterHerbicide">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <text value="修改杀虫剂"/>
+                </properties>
+              </component>
+              <component id="d1896" class="javax.swing.JButton" binding="alterTreeFertilizer">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <text value="修改智慧树肥料"/>
+                </properties>
+              </component>
+              <component id="6ccd" class="javax.swing.JButton" binding="alterTreeHight">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <text value="智慧树长100尺"/>
+                </properties>
+              </component>
               <vspacer id="44650">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
+              <component id="69a18" class="javax.swing.JButton" binding="clearSunshine">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <hideActionText value="false"/>
+                  <text value="清空阳光"/>
+                </properties>
+              </component>
+              <component id="914a4" class="javax.swing.JButton" binding="clearCoin">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <hideActionText value="false"/>
+                  <text value="清空金币"/>
+                </properties>
+              </component>
+              <component id="1ebb5" class="javax.swing.JButton" binding="clearFertilizer">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <hideActionText value="false"/>
+                  <text value="清空肥料"/>
+                </properties>
+              </component>
+              <component id="60eb8" class="javax.swing.JButton" binding="clearHerbicide">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <hideActionText value="false"/>
+                  <text value="清空杀虫剂"/>
+                </properties>
+              </component>
+              <component id="b36ba" class="javax.swing.JButton" binding="clearTreeFertilizer">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <hideActionText value="false"/>
+                  <text value="清空智慧树肥料"/>
+                </properties>
+              </component>
+              <component id="b3e41" class="javax.swing.JButton" binding="declineTreeHeight">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Microsoft YaHei UI" size="20"/>
+                  <foreground color="-16777216"/>
+                  <hideActionText value="false"/>
+                  <text value="智慧树减100尺"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

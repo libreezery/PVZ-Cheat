@@ -19,8 +19,31 @@ public class Main {
             toolGUI.running_status.setText("运行状态:无法运行!");
             toolGUI.running_status.setForeground(Color.RED);
         }
-        toolGUI.alter_sunshine.addActionListener(e -> PVZHooker.infinitSunshine(true));
-        toolGUI.alter_coin.addActionListener(e -> PVZHooker.infinitCoin(true));
+
+        // 阳光
+        toolGUI.alter_sunshine.addActionListener(e -> PVZHooker.infinitSunshine(9990));
+        toolGUI.clearSunshine.addActionListener(e -> PVZHooker.infinitSunshine(0));
+
+        // 金币
+        toolGUI.alter_coin.addActionListener(e -> PVZHooker.infinitCoin(99999999));
+        toolGUI.clearCoin.addActionListener(e -> PVZHooker.infinitCoin(0));
+
+        // 肥料
+        toolGUI.alterFertilizer.addActionListener(e -> PVZHooker.alterFertilizer(10999));
+        toolGUI.clearFertilizer.addActionListener(e -> PVZHooker.alterFertilizer(1000));
+
+        // 智慧树肥料
+        toolGUI.alterTreeFertilizer.addActionListener(e -> PVZHooker.alterTreeFertilizer(10999));
+        toolGUI.clearTreeFertilizer.addActionListener(e -> PVZHooker.alterTreeFertilizer(1000));
+
+        // 除草剂
+        toolGUI.alterHerbicide.addActionListener(e -> PVZHooker.alterherbicide(10999));
+        toolGUI.clearHerbicide.addActionListener(e -> PVZHooker.alterherbicide(1000));
+
+        // 智慧树高度
+        toolGUI.alterTreeHight.addActionListener(e -> PVZHooker.alterTreeHeight(100));
+        toolGUI.declineTreeHeight.addActionListener(e -> PVZHooker.alterTreeHeight(-100));
+
 
 
         final JFrame jFrame = new JFrame("植物大战僵尸辅助");
