@@ -42,4 +42,10 @@ bool setTreeHeight(int val);
 
 DWORD getTreeHeight();
 
+bool setNoCD(int index,int val);
+
+bool setChocolate(int count);
+
+DWORD getChocolateCount();
+
 #endif //PVZHOOKER_PVZTOOLS_H

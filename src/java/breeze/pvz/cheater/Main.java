@@ -5,20 +5,45 @@ import breeze.pvz.cheater.utils.PVZHooker;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
+
+    private static boolean noCd = false;
+    private static boolean infinitSunshine = false;
+
     public static void main(String[] args) {
         // 显示窗口
         final ToolGUI toolGUI = new ToolGUI();
-        if (PVZHooker.isRunning()) {
-            toolGUI.running_status.setText("运行状态:成功运行!");
-            toolGUI.running_status.setForeground(Color.decode("#009688"));
-        } else  {
-            toolGUI.running_status.setText("运行状态:无法运行!");
-            toolGUI.running_status.setForeground(Color.RED);
-        }
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                refreshStatus(toolGUI);
+            }
+        }, 0, 5000);
+
+        // 无冷却线程
+        new Thread(() -> {
+            while (true) {
+                try {
+                    if (noCd) {
+                        PVZHooker.clearCD();
+                    }
+                    if (infinitSunshine) {
+                        PVZHooker.infinitSunshine(9990);
+                    }
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+            }
+        }).start();
+
+        // 刷新状态
+        toolGUI.refreshStatus.addActionListener(e -> refreshStatus(toolGUI));
 
         // 阳光
         toolGUI.alter_sunshine.addActionListener(e -> PVZHooker.infinitSunshine(9990));
@@ -44,14 +69,40 @@ public class Main {
         toolGUI.alterTreeHight.addActionListener(e -> PVZHooker.alterTreeHeight(100));
         toolGUI.declineTreeHeight.addActionListener(e -> PVZHooker.alterTreeHeight(-100));
 
+        // 修改巧克力数量
+        toolGUI.alterQKL.addActionListener(e -> PVZHooker.alterChocolate(10999));
+        toolGUI.clearQKL.addActionListener(e -> PVZHooker.alterChocolate(1000));
+
+        // 无冷却时间
+        toolGUI.chkNoCD.setSelected(noCd);
+        toolGUI.chkNoCD.addItemListener(e -> {
+            final JCheckBox source = (JCheckBox) e.getSource();
+            noCd = source.isSelected();
+        });
+
+        toolGUI.infinitSunshine.setSelected(noCd);
+        toolGUI.infinitSunshine.addItemListener(e -> {
+            final JCheckBox source = (JCheckBox) e.getSource();
+            infinitSunshine = source.isSelected();
+        });
 
 
         final JFrame jFrame = new JFrame("植物大战僵尸辅助");
         jFrame.setContentPane(toolGUI.basicPanel);
         // 设置窗口参数
-        jFrame.setSize(600,600);
+        jFrame.setSize(600, 600);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+    }
+
+    private static void refreshStatus(ToolGUI toolGUI) {
+        if (PVZHooker.isRunning()) {
+            toolGUI.running_status.setText("运行状态:成功运行!");
+            toolGUI.running_status.setForeground(Color.decode("#009688"));
+        } else {
+            toolGUI.running_status.setText("运行状态:无法运行!");
+            toolGUI.running_status.setForeground(Color.RED);
+        }
     }
 }

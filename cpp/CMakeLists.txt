@@ -5,7 +5,7 @@ project(PVZHooker)
 
 aux_source_directory(. SOURCE_FILES)
 
-add_library(PVZHooker SHARED ${SOURCE_FILES})
+ add_library(PVZHooker SHARED ${SOURCE_FILES})
 
 # add_executable(PVZHooker ${SOURCE_FILES})
 

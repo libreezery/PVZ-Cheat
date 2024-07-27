@@ -63,6 +63,22 @@ JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterTreeHeight
 JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterherbicide
   (JNIEnv *, jclass, jint);
 
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    clearCD
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_clearCD
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     breeze_pvz_cheater_utils_PVZHooker
+ * Method:    alterChocolate
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterChocolate
+  (JNIEnv *, jclass, jint);
+
 #ifdef __cplusplus
 }
 #endif

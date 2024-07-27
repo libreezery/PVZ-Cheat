@@ -90,3 +90,22 @@ JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterTreeFertiliz
         setTreeFertilizer(val);
     }
 }
+
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_clearCD
+        (JNIEnv *, jclass) {
+    if (canBeHooked) {
+        for (int i = 0; i < 10; ++i) {
+            setNoCD(i,1);
+        }
+    }
+}
+
+JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_alterChocolate(JNIEnv *env, jclass jclazz, jint num) {
+    if (canBeHooked) {
+        setChocolate(num);
+    }
+}
+
+//JNIEXPORT void JNICALL Java_breeze_pvz_cheater_utils_PVZHooker_(JNIEnv *env, jclass jclazz) {
+//
+//}

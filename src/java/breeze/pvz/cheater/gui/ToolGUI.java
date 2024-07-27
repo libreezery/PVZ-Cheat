@@ -17,5 +17,10 @@ public class ToolGUI {
     public JButton alterTreeHight;
     public JButton clearTreeFertilizer;
     public JButton declineTreeHeight;
+    public JButton refreshStatus;
+    public JCheckBox chkNoCD;
+    public JCheckBox infinitSunshine;
+    public JButton alterQKL;
+    public JButton clearQKL;
 
 }

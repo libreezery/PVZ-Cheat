@@ -31,5 +31,9 @@ public class PVZHooker {
 
     public static native void alterherbicide(int num);
 
+    public static native void clearCD();
+
+    public static native void alterChocolate(int num);
+
 
 }
