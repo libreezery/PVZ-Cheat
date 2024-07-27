@@ -1,0 +1,26 @@
+Exception: Access Violation (code 0xc0000005) at address 6D0D5E05 in thread 978C
+Module: d3dim700.dll
+Logical Address: 0001:00004E05
+
+0019F858 6D0D5E05 Direct3DCreateDevice+10B5 [(Unknown File Name)(0)+0x00000000]
+Params: 0F0EEFE0 0019F86C 00000000 00000000
+
+
+EAX:0019F86C EBX:6CD90774 ECX:00000000 EDX:00216000 ESI:0019F8B0 EDI:00000000
+EIP:6D0D5E05 ESP:0019F838  EBP:0019F858
+CS:0023 SS:002B DS:002B ES:002B FS:0053 GS:002B
+Flags:00010206
+
+Windows Ver: NT 6.2  Build 9200
+DDraw Ver: 
+DSound Ver: 
+
+Product: PlantsVsZombies
+Version: 1.0.0.1051
+Time Loaded: 01:51:05
+Fullscreen: ·ñ
+Primary ThreadId: 978C
+Times Played: 0
+Build Num: 0
+Build Date: 
+
